@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns="http://www.w3.org/2000/svg"
+    version="1.1"
+    viewBox="0 0 52 52"
+    onload="Main()">
+  <desc>
+    Author: osmatsuda@gmail.com
+    Licence: Creative Commons Attribution 4.0 International (CC BY 4.0) https://creativecommons.org/licenses/by/4.0/
+  </desc>
+  <clipPath id="clip-gear">
+    <path transform="translate(1 1)"
+	  d="M 23 0
+	     L 21.412109 6.3515625
+	     A 19 19 0 0 0 18.791016 7.0644531
+	     L 14.232422 2.3496094 10.767578 4.3496094 12.568359 10.646484
+	     A 19 19 0 0 0 10.660156 12.572266
+	     L 4.3496094 10.767578 2.3496094 14.232422 7.0664062 18.792969
+	     A 19 19 0 0 0 6.3574219 21.410156
+	     L 0 23 0 27 6.3515625 28.587891
+	     A 19 19 0 0 0 7.0644531 31.208984
+	     L 2.3496094 35.767578 4.3496094 39.232422 10.646484 37.431641
+	     A 19 19 0 0 0 12.572266 39.339844
+	     L 10.767578 45.650391 14.232422 47.650391 18.792969 42.933594
+	     A 19 19 0 0 0 21.410156 43.642578
+	     L 23 50 27 50 28.587891 43.648438
+	     A 19 19 0 0 0 31.208984 42.935547
+	     L 35.767578 47.650391 39.232422 45.650391 37.431641 39.353516
+	     A 19 19 0 0 0 39.339844 37.427734
+	     L 45.650391 39.232422 47.650391 35.767578 42.933594 31.207031
+	     A 19 19 0 0 0 43.642578 28.589844
+	     L 50 27 50 23 43.648438 21.412109
+	     A 19 19 0 0 0 42.935547 18.791016
+	     L 47.650391 14.232422 45.650391 10.767578 39.353516 12.568359
+	     A 19 19 0 0 0 37.427734 10.660156
+	     L 39.232422 4.3496094 35.767578 2.3496094 31.207031 7.0664062
+	     A 19 19 0 0 0 28.589844 6.3574219
+	     L 27 0 23 0
+	     z
+	     M 25 12
+	     A 13 13 0 0 1 38 25
+	     A 13 13 0 0 1 25 38
+	     A 13 13 0 0 1 12 25
+	     A 13 13 0 0 1 25 12
+	     z"/>
+  </clipPath>
+  <defs>
+    <pattern id="gear_bg_pattern_0" patternUnits="userSpaceOnUse"
+	     x="0" y="0" width="2" height="2"
+	     patternTransform="rotate(3)"
+	     viewBox="0 0 20 20">
+      <defs>
+	<path id="gear_bg_pattern_0_path"
+	      fill="none" stroke-width="1"
+	      d="M 1 5 L 9 5 M 5 1 L 5 9"/>
+      </defs>
+      <g stroke="blue">
+	<use xlink:href="#gear_bg_pattern_0_path"/>
+	<use xlink:href="#gear_bg_pattern_0_path" transform="translate(10 10)"/>
+      </g>
+      <g stroke="red">
+	<use xlink:href="#gear_bg_pattern_0_path" transform="translate(10 0)"/>
+	<use xlink:href="#gear_bg_pattern_0_path" transform="translate(0 10)"/>
+      </g>
+    </pattern>
+    <pattern id="gear_bg_pattern_1" patternUnits="userSpaceOnUse"
+	     patternTransform="rotate(45)"
+	     x="0" y="0" width="1" height="1"
+	     viewBox="0 0 10 10">
+      <circle fill="none" stroke="gray" stroke-width="1"
+	      cx="5" cy="5" r="3"/>
+    </pattern>
+    <pattern id="gear_bg_pattern_2" patternUnits="userSpaceOnUse"
+	     x="0" y="0" width="2" height="2"
+	     patternTransform="rotate(-2)"
+	     viewBox="0 0 18 18">
+      <defs>
+	<path id="gear_bg_pattern_2_strips"
+	      d="M 1.5 0 L 0 1.5
+		 M 4.5 0 L 0 4.5
+		 M 7.5 0 L 0 7.5
+		 M 9 1.5 L 0 10.5
+		 M 9 4.5 L 0 13.5
+		 M 9 7.5 L 0 16.5
+		 M 9 10.5 L 1.5 18
+		 M 9 13.5 L 4.5 18
+		 M 9 16.5 L 7.5 18"/>
+      </defs>
+      <use xlink:href="#gear_bg_pattern_2_strips"
+	   transform="translate(4.5 0)"
+	   fill="none" stroke="darkgreen" stroke-width=".5"/>
+      <use xlink:href="#gear_bg_pattern_2_strips"
+	   transform="translate(18 4.5) rotate(90)"
+	   fill="none" stroke="darkgreen" stroke-width=".5"/>
+    </pattern>
+    <pattern id="gear_bg_pattern_3" patternUnits="userSpaceOnUse"
+	     x="0" y="0" width="2" height="1.8"
+	     viewBox="0 0 200 180">
+      <defs>
+	<path id="gear_bg_pattern_3_star"
+	      fill="orange" fill-rule="nonzero" stroke="none"
+	      d="M 0 -50 L -29.4 40.45 47.55 -15.55 -47.55 -15.55 29.4 40.45 z"/>
+      </defs>
+      <use xlink:href="#gear_bg_pattern_3_star"/>
+      <use xlink:href="#gear_bg_pattern_3_star"
+	   transform="translate(100 0)"/>
+      <use xlink:href="#gear_bg_pattern_3_star"
+	   transform="translate(200 0)"/>
+      <use xlink:href="#gear_bg_pattern_3_star"
+	   transform="translate(50 90)"/>
+      <use xlink:href="#gear_bg_pattern_3_star"
+	   transform="translate(150 90)"/>
+      <use xlink:href="#gear_bg_pattern_3_star"
+	   transform="translate(0 180)"/>
+      <use xlink:href="#gear_bg_pattern_3_star"
+	   transform="translate(100 180)"/>
+      <use xlink:href="#gear_bg_pattern_3_star"
+	   transform="translate(200 180)"/>
+    </pattern>
+  </defs>
+  <g clip-path="url(#clip-gear)">
+    <rect x="0" y="-26" width="52" height="52" fill="url(#gear_bg_pattern_0)">
+      <animate id="anim0F" attributeName="y" attributeType="XML"
+	       begin="indefinite" from="-26" to="0" dur="3s" fill="freeze"
+	       onend="gearApp.endFormerAnim(this)" />
+
+      <animate id="anim0R" attributeName="x" attributeType="XML"
+	       begin="indefinite" from="0" to="-26" dur="3s" fill="freeze" />
+      <animate attributeName="y" attributeType="XML"
+	       begin="anim0R.begin" from="0" to="-26" dur="3s" fill="freeze" />
+
+      <animate id="anim1F" attributeName="x" attributeType="XML"
+	       begin="anim0R.end+1s" from="-26" to="0" dur="3s" fill="freeze"
+	       onend="gearApp.endFormerAnim(this)" />
+      <animate attributeName="y" attributeType="XML"
+	       begin="anim1F.begin" from="-26" to="-52" dur="3s" fill="freeze" />
+
+      <animate id="anim1R" attributeName="x" attributeType="XML"
+	       begin="indefinite" from="0" to="-26" dur="3s" fill="freeze" />
+      <animate attributeName="y" attributeType="XMl"
+	       begin="anim1R.begin" from="-52" to="-26" dur="3s" fill="freeze" />
+
+      <animate id="anim2F" attributeName="x" attributeType="XML"
+	       begin="anim1R.end+1s" from="-26" to="-52" dur="3s" fill="freeze"
+	       onend="gearApp.endFormerAnim(this)" />
+      <animate attributeName="y" attributeType="XML"
+	       begin="anim2F.begin" from="-26" to="0" dur="3s" fill="freeze" />
+
+      <animate id="anim2R" attributeName="x" attributeType="XML"
+	       begin="indefinite" from="-52" to="-26" dur="3s" fill="freeze" />
+
+      <animate id="anim3F" attributeName="x" attributeType="XML"
+	       begin="anim2R.end+1s" from="-26" to="-52" dur="3s" fill="freeze"
+	       onend="gearApp.endFormerAnim(this)" />
+
+      <animate id="anim3R" attributeName="x" attributeType="XML"
+	       begin="indefinite" from="0" to="0" dur="3s" fill="freeze"
+	       onend="Main()" />
+      <animate attributeName="y" attributeType="XML"
+	       begin="anim3R.begin" from="-52" to="-26" dur="3s" fill="freeze" />
+    </rect>
+    <rect x="-26" y="26" width="52" height="52" fill="url(#gear_bg_pattern_1)">
+      <animate attributeName="x" attributeType="XML"
+	       begin="anim0F.begin" from="-26" to="0" dur="3s" fill="freeze" />
+      <animate attributeName="y" attributeType="XML"
+	       begin="anim0F.begin" from="26" to="52" dur="3s" fill="freeze" />
+
+      <animate attributeName="x" attributeType="XML"
+	       begin="anim0R.begin" from="0" to="-26" dur="3s" fill="freeze" />
+      <animate attributeName="y" attributeType="XML"
+	       begin="anim0R.begin" from="52" to="26" dur="3s" fill="freeze" />
+
+      <animate attributeName="x" attributeType="XML"
+	       begin="anim1F.begin" from="-26" to="0" dur="3s" fill="freeze" />
+      <animate attributeName="y" attributeType="XML"
+	       begin="anim1F.begin" from="26" to="0" dur="3s" fill="freeze" />
+
+      <animate attributeName="y" attributeType="XML"
+	       begin="anim1R.begin" from="0" to="26" dur="3s" fill="freeze" />
+
+      <animate attributeName="y" attributeType="XML"
+	       begin="anim2F.begin" from="26" to="52" dur="3s" fill="freeze" />
+
+      <animate attributeName="x" attributeType="XML"
+	       begin="anim2R.begin" from="0" to="26" dur="3s" fill="freeze" />
+      <animate attributeName="y" attributeType="XML"
+	       begin="anim2R.begin" from="52" to="26" dur="3s" fill="freeze" />
+
+      <animate attributeName="x" attributeType="XML"
+	       begin="anim3F.begin" from="26" to="0" dur="3s" fill="freeze" />
+      <animate attributeName="y" attributeType="XML"
+	       begin="anim3F.begin" from="26" to="0" dur="3s" fill="freeze" />
+
+      <animate attributeName="x" attributeType="XML"
+	       begin="anim3R.begin" from="0" to="-26" dur="3s" fill="freeze" />
+      <animate attributeName="y" attributeType="XML"
+	       begin="anim3R.begin" from="0" to="26" dur="3s" fill="freeze" />
+    </rect>
+    <rect x="26" y="26" width="52" height="52" fill="url(#gear_bg_pattern_2)">
+      <animate attributeName="x" attributeType="XML"
+	       begin="anim0F.begin" from="26" to="52" dur="3s" fill="freeze" />
+      <animate attributeName="y" attributeType="XML"
+	       begin="anim0F.begin" from="26" to="52" dur="3s" fill="freeze" />
+
+      <animate attributeName="x" attributeType="XML"
+	       begin="anim0R.begin" from="52" to="26" dur="3s" fill="freeze" />
+      <animate attributeName="y" attributeType="XML"
+	       begin="anim0R.begin" from="0" to="0" dur="3s" fill="freeze" />
+
+      <animate attributeName="x" attributeType="XML"
+	       begin="anim1F.begin" from="26" to="52" dur="3s" fill="freeze" />
+
+      <animate attributeName="x" attributeType="XML"
+	       begin="anim1R.begin" from="52" to="26" dur="3s" fill="freeze" />
+      <animate attributeName="y" attributeType="XML"
+	       begin="anim1R.begin" from="-52" to="-26" dur="3s" fill="freeze" />
+
+      <animate attributeName="x" attributeType="XML"
+	       begin="anim2F.begin" from="26" to="0" dur="3s" fill="freeze" />
+      <animate attributeName="y" attributeType="XML"
+	       begin="anim2F.begin" from="-26" to="0" dur="3s" fill="freeze" />
+
+      <animate attributeName="x" attributeType="XML"
+	       begin="anim2R.begin" from="0" to="26" dur="3s" fill="freeze" />
+      <animate attributeName="y" attributeType="XML"
+	       begin="anim2R.begin" from="0" to="-26" dur="3s" fill="freeze" />
+
+      <animate attributeName="x" attributeType="XML"
+	       begin="anim3F.begin" from="26" to="0" dur="3s" fill="freeze" />
+      <animate attributeName="y" attributeType="XML"
+	       begin="anim3F.begin" from="-26" to="-52" dur="3s" fill="freeze" />
+
+      <animate attributeName="x" attributeType="XML"
+	       begin="anim3R.begin" from="52" to="26" dur="3s" fill="freeze" />
+      <animate attributeName="y" attributeType="XML"
+	       begin="anim3R.begin" from="0" to="26" dur="3s" fill="freeze" />
+    </rect>
+  </g>
+  <script xlink:href="gear.js" type="application/ecmascript"></script>
+</svg>
