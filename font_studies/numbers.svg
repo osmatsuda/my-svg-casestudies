@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="0 0 2400 1800">
+  <defs>
+    <style type="text/css"><![CDATA[
+    @font-face {
+      font-family: "My Numbers Black";
+      src: url("numbers-src.svg#MyNumbersBlack") format("svg");
+    }
+    @font-face {
+      font-family: "My Numbers Roman";
+      src: url("numbers-src.svg#MyNumbersRoman") format("svg");
+    }
+    @font-face {
+      font-family: "My Numbers Cloock";
+      src: url("numbers-src.svg#MyNumbersCloock") format("svg");
+    }
+    @font-face {
+      font-family: "My Numbers Type";
+      src: url("numbers-src.svg#MyNumbersType") format("svg");
+    }
+    @font-face {
+      font-family: "My Numbers Script";
+      src: url("numbers-src.svg#MyNumbersBlack") format("svg");
+    }
+    .font-black { font-family: "My Numbers Black", Impact, sans-serif; }
+    .font-roman { font-family: "My Numbers Roman", "Times New Roman", serif; font-weight: bold; }
+    .font-cloock { font-family: "My Numbers Cloock", Futura, sans-serif; }
+    .font-type { font-family: "My Numbers Type", Courier, monospace; font-weight: bold; }
+    .font-script { font-family: "My Numbers Script", "Brush Script MT", cursive; }
+    ]]></style>
+  </defs>
+  <path d="M0,342 H2400 M0,702 H2400 M0,1062 H2400 M0,1422 H2400" fill="none" stroke="lightgray"/>
+  <text x="0" y="342" class="font-black" font-size="360" fill="red">
+    <tspan>0123456789</tspan>
+  </text>
+  <text x="0" y="702" class="font-roman" font-size="360" fill="orange">
+    0123456789
+  </text>
+  <text x="0" y="1062" class="font-cloock" font-size="360" fill="green">
+    0123456789
+  </text>
+  <text x="0" y="1422" class="font-type" font-size="360" fill="blue">
+    0123456789
+  </text>
+  <text x="0" y="1782" class="font-script" font-size="360" fill="violet">
+    0123456789
+  </text>
+</svg>
