@@ -1,0 +1,114 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body>header>svg, body>.title-spacer, #my-app, body>footer {
+    display: block;
+    margin: 0 auto;
+    max-width: 1500px;
+}
+@media screen {
+    body>header {
+	position: fixed;
+	width: 100vw;
+	z-index: -1;
+    }
+}
+@media print {
+    body>.title-spacer {
+	display: none;
+    }
+}
+
+body>footer {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+body>footer>p {
+    flex: 1 1 width;
+    align-self: flex-end;
+    box-sizing: border-box;
+    width: 50%;
+    padding: 2em 1em;
+}
+body>footer>a[title="repository"] {
+    flex: 0 0 width;
+    display: block;
+    --size: calc(100vmin / 4); 
+    width: var(--size);
+    height: var(--size);
+}
+    
+#my-app>ul, #my-app>ul>li {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+#my-app>ul>li {
+    flex: 1 1 auto;
+    width: 400px;
+    margin-bottom: 50px;
+    justify-content: center;
+    align-items: center;
+}
+#my-app>ul>li>a {
+    display: block;
+    flex: 1 1 auto;
+    max-width: 400px;
+    position: relative;
+    text-decoration: none;
+}
+#my-app>ul>li>a>img {
+    display: block;
+}
+#my-app>ul>li>a>embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+#my-app>ul>li>a>.dimmed {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,.2);
+    color: gray;
+}
+@media screen (max-width: 1199px) {
+    #my-app>ul>li {
+	width: 300px;
+    }
+    #my-app>ul>li>a {
+	max-width: 300px;
+    }
+}
+
+#my-app>.popuptransition {
+    position: absolute;
+    opacity: 1;
+    transition: top 1s, left 1s, width 1s, height 1s, opacity 1s cubic-bezier(1,0,0,1);
+}
+#my-app>.popupframe {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    border: none;
+    opacity: 0;
+    transition: opacity 1s cubic-bezier(1,0,0,1);
+}
+#my-app>.popupclose {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 12vmin;
+    height: 12vmin;
+    min-width: 50px;
+    min-height: 50px;
+}

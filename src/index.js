@@ -1,17 +1,52 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import Scene from './Scene';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+
+const container = document.getElementById('my-app');
+const items = [].map.call(container.querySelectorAll('li>a'), (a) => {
+    const path = a.pathname;
+    const name = path.split('/').reverse()[0];
+    return {
+	path: path,
+	name: name,
+	title: null,
+	rect: null,
+	popup: false,
+    };
+});
+
+const root = ReactDOM.createRoot(container);
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+    <React.StrictMode>
+	<App items={items}/>
+    </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
+
+const defaultScene = new Scene({
+    title: 'body>header:first-child>svg',
+    toRepos: 'body>footer a[title="repository"]>svg',
+});
+
+let resizeTimerId;
+window.addEventListener('resize', (e) => {
+    if (resizeTimerId !== undefined) {
+	clearTimeout(resizeTimerId);
+    }
+    resizeTimerId = setTimeout(() => {
+	defaultScene.resized();
+    }, 250);
+});
+
+let scrollTimerId;
+window.addEventListener('scroll', (e) => {
+    if (scrollTimerId !== undefined) {
+	clearTimeout(scrollTimerId);
+    }
+    scrollTimerId = setTimeout(() => {
+	defaultScene.scrolled();
+    }, 60);
+});

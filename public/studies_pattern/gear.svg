@@ -5,9 +5,11 @@
     version="1.1"
     viewBox="0 0 52 52"
     onload="Main()">
+  <title>Study pattern and animation: animate in animate</title>
   <desc>
     Author: osmatsuda@gmail.com
-    Licence: Creative Commons Attribution 4.0 International (CC BY 4.0) https://creativecommons.org/licenses/by/4.0/
+    Licence: Creative Commons Attribution 4.0 International (CC BY 4.0)
+    https://creativecommons.org/licenses/by/4.0/
   </desc>
   <clipPath id="clip-gear">
     <path transform="translate(1 1)"

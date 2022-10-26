@@ -3,11 +3,12 @@
      xmlns="http://www.w3.org/2000/svg"
      version="1.1"
      viewBox="0 0 600 400" onload="Main()">
+  <title>Study pattern and animation: fancy octopus</title>
   <desc>
     Author: osmatsuda@gmail.com
     Licence: Creative Commons Attribution 4.0 International (CC BY 4.0) https://creativecommons.org/licenses/by/4.0/
   </desc>
-  <script xlink:href="MOctopus.js" type="application/ecmascript"></script>
+  <script xlink:href="octopus.js" type="application/ecmascript"></script>
   <defs>
     <pattern id="MOPSPtn0" class="MOPSPtn" patternUnits="userSpaceOnUse"
 	     width="36" height="62" viewBox="0 0 36 62">
