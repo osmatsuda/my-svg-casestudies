@@ -1,6 +1,7 @@
 html, body {
     margin: 0;
     padding: 0;
+    font-family: "SF Pro JP", "SF Pro Display", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", メイリオ, Meiryo, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 body>header>svg, body>.title-spacer, #my-app, body>footer {
@@ -25,6 +26,8 @@ body>footer {
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
+    font-size: .8em;
+    line-height: 1.4;
 }
 body>footer>p {
     flex: 1 1 width;
@@ -75,7 +78,7 @@ body>footer>a[title="repository"] {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(0,0,0,.2);
+    background: rgba(0,0,0,.1);
     color: gray;
 }
 @media screen (max-width: 1199px) {
@@ -92,6 +95,9 @@ body>footer>a[title="repository"] {
     opacity: 1;
     transition: top 1s, left 1s, width 1s, height 1s, opacity 1s cubic-bezier(1,0,0,1);
 }
+#my-app>.popuptransition.noanimate {
+    transition: none;
+}
 #my-app>.popupframe {
     position: fixed;
     top: 0;
@@ -102,6 +108,9 @@ body>footer>a[title="repository"] {
     border: none;
     opacity: 0;
     transition: opacity 1s cubic-bezier(1,0,0,1);
+}
+#my-app>.popupframe.noanimate {
+    transition: none;
 }
 #my-app>.popupclose {
     position: fixed;

@@ -78,6 +78,9 @@ function ToRepos(svg) {
     this.trigger.addEventListener('endEvent', () => {
 	this.state = 0;
     });
+    this.svg.addEventListener('mouseenter', () => {
+	this.eyeCatching();
+    });
 };
 Object.setPrototypeOf(ToRepos.prototype, SVGComponent.prototype);
 

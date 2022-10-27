@@ -1,37 +1,16 @@
-import React, { useRef, useState, useEffect, useReducer, useContext } from 'react';
-import { getSvgTitle, dimmed, ItemsDispatch } from './utils';
+import React, { useRef, useState, useEffect, useContext } from 'react';
+import { getSvgTitle, dimmed, ItemsDispatch, filename } from './utils';
 import Popup from './Popup';
 
-// ISSUE: mouse over and kirakira is not stable.
-
-function itemsUpdated(items, diff) {
-    return items.map((item) => {
-	if (item[diff.test.key] === diff.test.value) {
-	    diff.updates.forEach((update) => {
-		item[update.key] = update.value;
-	    });
-	}
-	return item;
-    });
-}
-
-function App(props) {
-    const [items, dispatch] = useReducer(itemsUpdated, props.items);
-    return (
-	<ItemsDispatch.Provider value={dispatch}>
-	    <ItemList items={items}/>
-	</ItemsDispatch.Provider>
-    );
-}
 
 function ItemList(props) {
     const lis = [];
     let popup;
     for (const item of props.items) {
-	if (item.popup) {
-	    popup = <Popup rect={item.rect} src={item.path} title={item.title}/>;
+	if (item.popupState > 0) {
+	    popup = <Popup {...item}/>;
 	}
-	lis.push(<li key={item.path}><Item {...item}/></li>);
+	lis.push(<li key={item.src}><Item {...item}/></li>);
     }
 
     document.body.style.overflow = !popup ? 'visible' : 'hidden';
@@ -44,8 +23,8 @@ function ItemList(props) {
 }
 
 function Item(props) {
-    const href = '?' + props.name;
-    const src = props.path;
+    const href = '?get=' + filename(props.src);
+    const src = props.src;
     const itemsUpdate = useContext(ItemsDispatch);
     // eyeCatching
     //   0: no
@@ -58,7 +37,7 @@ function Item(props) {
 	getSvgTitle(src)
 	    .then((title) => {
 		itemsUpdate({
-		    test: { key: 'path', value: src, },
+		    test: { key: 'src', value: src, },
 		    updates: [
 			{ key: 'title', value: title, },
 		    ],
@@ -80,19 +59,20 @@ function Item(props) {
 	if (!!anchor.current && (tnn === 'img' || tnn === 'embed')) {
 	    const arect = anchor.current.getBoundingClientRect();
 	    itemsUpdate({
-		test: { key: 'path', value: src, },
+		test: { key: 'src', value: src, },
 		updates: [
-		    { key: 'popup', value: true, },
+		    { key: 'popupState', value: 1, },
 		    { key: 'rect', value: arect, },
 		],
 	    });
 	}
+	setEyeCatching(0);
     }
 
-    if (props.popup) {
+    if (props.popupState > 0) {
 	return (
 	    <a href={href}>
-		{dimmed(href.slice(1), props.rect)}
+		{dimmed(filename(props.src), props.rect)}
 	    </a>
 	);
     } else if (props.title !== null) {
@@ -123,10 +103,10 @@ function Thumbnail(props) {
 	if (eyeCatching === 1) {
 	    embed.current.addEventListener('kirakira.click', (e) => {
 		popupWork(e);
-	    });
+	    }, { once: true });
 	    embed.current.addEventListener('kirakira.endEvent', (e) => {
 		setEyeCatching(2);
-	    });
+	    }, { once: true });
 	}
     }, [eyeCatching, setEyeCatching, popupWork]);
 
@@ -146,4 +126,4 @@ function Thumbnail(props) {
     return img;
 }
 
-export default App;
+export default ItemList;

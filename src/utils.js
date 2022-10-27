@@ -1,15 +1,21 @@
 import React from 'react';
 
-const ItemsDispatch = React.createContext(null);
+export const ItemsDispatch = React.createContext(null);
 
-function canScroll(elem) {
+export function filename(path) {
+    const ns = path.split('/');
+    if (ns.length === 0) return '';
+    return ns[ns.length - 1];
+}
+
+export function canScroll(elem) {
     const overflow = elem.style.overflow;
     return (overflow === 'visible' ||
 	    overflow === '' ||
 	    overflow === undefined)
 };
 
-function toggleClassName(elem, name, adding) {
+export function toggleClassName(elem, name, adding) {
     const names = elem.className.trim().split(' ');
     const i = names.indexOf(name);
     if (adding && i > -1)
@@ -21,9 +27,9 @@ function toggleClassName(elem, name, adding) {
 	names.splice(i, 1);
     }
     elem.className = names.join(' ');
-}
+};
 
-function pageRect(rect) {
+export function pageRect(rect) {
     if (rect === null) {
 	return {
 	    top: (window.scrollY + window.innerHeight / 2) + 'px',
@@ -37,9 +43,9 @@ function pageRect(rect) {
 	width: rect.width + 'px',
 	height: rect.height + 'px',
     };
-}
+};
 
-function dimmed(title, rect) {
+export function dimmed(title, rect) {
     if (rect === null) {
 	return <div className="dimmed">{title}</div>;
     }
@@ -52,9 +58,9 @@ function dimmed(title, rect) {
 	    className="dimmed"
 	>{title}</div>
     );
-}
+};
 
-function src2className(src) {
+export function src2className(src) {
     // ‘/foo/bar.svg’ => FooBarSvg
     return src.split('/').reduce((result, s) => {
 	const _s = s.split('.').reduce((result, s) => {
@@ -62,9 +68,9 @@ function src2className(src) {
 	});
 	return result + _s.slice(0,1).toUpperCase() + _s.slice(1);
     });
-}
+};
 
-function getSvgTitle(src) {
+export function getSvgTitle(src) {
     const p = new Promise((resolve) => {
 	const req = new XMLHttpRequest();
 	req.onreadystatechange = () => {
@@ -85,6 +91,6 @@ function getSvgTitle(src) {
 	req.send();
     });
     return p;
-}
+};
 
-export { getSvgTitle, src2className, dimmed, pageRect, toggleClassName, canScroll, ItemsDispatch };
+

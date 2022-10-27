@@ -9,6 +9,8 @@ function Popup(props) {
     const timer = useRef(null);
     const savedRect = pageRect(props.rect);
     const itemsUpdate = useContext(ItemsDispatch);
+    const {src, title, popupState} = props;
+    const [closeAnimate, setCloseAnimate] = useState(popupState);
 
     useEffect(() => {
 	const ppt = refT.current;
@@ -22,16 +24,25 @@ function Popup(props) {
 		ppt.style.opacity = .5;
 
 		ppf.style.opacity = 1;
-	    }, 100);
+	    }, 1);
 
-	    ppf.addEventListener('transitionend', (e) => {
+	    if (popupState === 1) {
+		ppf.addEventListener('transitionend', (e) => {
+		    setClosable(true);
+		    window.history.pushState(null, title, '?get=' + src);
+		}, { once: true });
+	    } else {
 		setClosable(true);
-	    }, { once: true });
+	    }
 	}
-    }, [timer]);
+    }, [timer, src, title, popupState]);
 
     function close() {
+	if (closeAnimate === 2) {
+	    setCloseAnimate(1);
+	}
 	setClosable(false);
+
 	refF.current.style.opacity = 0;
 	const tnst = refT.current;
 	setTimeout(() => {
@@ -44,26 +55,27 @@ function Popup(props) {
 
 	tnst.addEventListener('transitionend', (e) => {
 	    itemsUpdate({
-		test: { key: 'path', value: props.src, },
+		test: { key: 'src', value: props.src, },
 		updates: [
-		    { key: 'popup', value: false, },
+		    { key: 'popupState', value: 0, },
 		],
 	    });
+	    window.history.pushState(null, title, '/');
 	}, { once: true });
     }
     return (
 	<>
 	    <img
 		ref={refT}
-		className='popuptransition'
+		className={closeAnimate === 1 ? 'popuptransition' : 'popuptransition noanimate'}
 		style={savedRect}
-		src={props.src}
+		src={src}
 		alt=''/>
 	    <iframe
 		ref={refF}
-		className='popupframe'
-		title={props.title}
-		src={props.src}/>
+		className={closeAnimate === 1 ? 'popupframe' : 'popupframe noanimate'}
+		title={title}
+		src={src}/>
 	    {closable ? <Close close={close}/> : null}
 	</>
     );
@@ -73,7 +85,6 @@ function Close(props) {
     const once = useRef(null);
     const embed = useRef(null);
     const close = props.close;
-    //const savedRect = props.savedRect;
 
     useEffect(() => {
 	if (once.current === null) {

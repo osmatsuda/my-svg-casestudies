@@ -1,0 +1,87 @@
+;; -*- lexical-binding: t; -*-
+
+(defun midpoint (p1 p2)
+  (cons (+ (car p1) (* (- (car p2) (car p1)) .5))
+	(+ (cdr p1) (* (- (cdr p2) (cdr p1)) .5))))
+
+(defun hypot (p1 p2)
+  (sqrt (+ (expt (- (car p2) (car p1)) 2)
+	   (expt (- (cdr p2) (cdr p1)) 2))))
+
+(defun points-from-pathdata (pathdata)
+  (let ((re-points-xy (rx (seq (group (+ digit))
+			       (* space) "," (* space)
+			       (group (+ digit)))))
+	store)
+    (with-temp-buffer
+      (insert pathdata)
+      (goto-char (point-min))
+      (while (re-search-forward re-points-xy nil t)
+	(setq store (cons (cons (string-to-number (match-string 1))
+				(string-to-number (match-string 2)))
+			  store))))
+    store))
+
+(defun make-colorful-bits (rect-size	; (number . number)
+			   obj-points	; ((number . number)...)
+			   bit-size	; int
+			   grid-size	; number
+			   kind-len	; int
+			   )
+  (message "make-colorful-bits...")
+  (let ((x-max (car rect-size))
+	(y-max (cdr rect-size))
+	(x (random (truncate bit-size)))
+	(y (random (truncate bit-size)))
+	(th (random))
+	store
+	(store-kinds (make-vector kind-len nil))
+	(work-buffer (get-buffer-create "*make-colorful-bits*")))
+    (while (< y y-max)
+      (let* ((x1 (+ x (* bit-size (sin (degrees-to-radians th)))))
+	     (_y (+ y (- bit-size (* (* bit-size 2) (/ (random 100) 100.0)))))
+	     (y1 (+ _y (* bit-size (cos (degrees-to-radians th)))))
+	     (bit (make-vector 4 nil)))
+	(aset bit 0 x1)
+	(aset bit 1 y1)
+	(aset bit 2 (+ x (- x x1)))
+	(aset bit 3 (+ _y (- _y y1)))
+	(setq store (cons bit store)))
+      (setq x (+ x (- (+ grid-size bit-size)
+		      (* (* bit-size 2) (/ (random 100) 100.0))))
+	    th (random))
+      (when (> x x-max)
+	(setq x (random (truncate bit-size))
+	      y (+ y (- (+ grid-size (* bit-size .75))
+			(* (* bit-size 2) (/ (random 100) 100.0)))))))
+    (while store
+      (dotimes (i (min kind-len (length store)))
+	(let* ((choice-idx (random (length store)))
+	       (bit (nth choice-idx store)))
+	  (setq store (delete bit store))
+	  (when (> (* grid-size 1.7)
+		   (apply #'min (mapcar (lambda (obj-p)
+					  (hypot obj-p (midpoint (cons (aref bit 0)
+								       (aref bit 1))
+								 (cons (aref bit 2)
+								       (aref bit 3)))))
+					obj-points)))
+	    (aset store-kinds i (cons bit (aref store-kinds i)))))))
+    (with-current-buffer work-buffer
+      (when (> (point-max) (point-min))
+	(delete-region (point-min) (point-max)))
+      (mapc (lambda (kind)
+	      (insert "<path d=\"")
+	      (mapc (lambda (bit)
+		      (insert (format "M%d,%d %d,%d"
+				      (aref bit 0) (aref bit 1) (aref bit 2) (aref bit 3))))
+		    kind)
+	      (insert "\"/>\n"))
+	    store-kinds)))
+  (message "make-colorful-bits... done"))
+
+
+(make-colorful-bits
+ (cons 1024 330)
+ (points-from-pathdata "M 96,128 C 104,123 97,116 84,118 70,120 53,133 38,151 23,168 17,189 38,195 59,201 84,207 95,215 108,223 104,240 92,254 82,266 55,289 42,293 30,298 48,267 48,267 M 91,159 C 91,159 81,151 87,148 93,145 185,115 217,105 M 116,146 C 116,146 110,144 110,147 111,151 119,203 123,214 127,226 132,237 139,236 145,235 150,213 151,198 153,183 159,143 160,138 161,133 155,138 155,138 M 250,127 C 249,112 241,97 229,103 217,110 206,133 200,161 194,193 194,225 217,236 238,246 270,238 275,221 277,214 269,209 269,209 M 213,209 C 213,209 239,200 252,198 260,197 261,199 259,210 254,230 246,259 245,291 245,307 253,316 259,302 M 338,180 C 337,169 326,169 315,183 306,195 303,209 319,213 331,216 351,200 361,190 M 384,172 C 385,169 380,166 375,169 368,173 362,184 361,195 360,206 370,206 377,199 386,190 391,184 393,177 395,170 387,185 388,191 389,198 397,197 407,190 425,177 437,159 440,151 443,143 435,159 443,168 448,173 448,180 443,185 435,192 425,192 422,191 418,189 433,194 448,191 468,186 481,170 487,160 493,149 488,145 482,149 470,158 465,175 474,180 488,189 526,170 546,159 M 570,150 C 586,142 604,124 606,116 609,103 602,119 610,130 617,140 610,153 597,153 586,153 611,152 626,146 641,139 651,120 665,91 670,82 677,63 676,65 672,72 659,100 649,124 643,136 650,144 664,136 676,130 685,116 692,106 695,100 684,115 684,126 683,137 690,138 697,133 708,126 712,118 718,103 720,98 709,117 710,127 711,137 730,135 746,118 M 630,101 C 621,96 650,87 726,75 M 777,97 C 780,93 770,88 761,92 754,96 747,105 746,113 745,123 756,127 766,120 785,107 809,50 817,32 825,13 808,50 793,79 781,102 785,124 801,118 817,112 842,76 850,61 855,50 840,73 837,83 835,94 841,104 856,98 872,93 888,80 896,68 904,56 897,53 887,61 877,69 871,87 880,91 896,98 930,65 949,43 953,39 958,25 953,35 949,43 954,49 953,58 951,73 943,80 927,83 916,85 948,73 965,71 985,67 1001,56 1016,39 M 851,43 C 853,38 858,40 888,35")
+ 3.5 14 6)
