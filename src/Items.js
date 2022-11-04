@@ -23,7 +23,7 @@ function ItemList(props) {
 }
 
 function Item(props) {
-    const href = '?get=' + filename(props.src);
+    const href = '?get=' + props.src;
     const src = props.src;
     const itemsUpdate = useContext(ItemsDispatch);
     // eyeCatching

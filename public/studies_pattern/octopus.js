@@ -1,35 +1,40 @@
 (function(g) {
-    var d = g.document
+    const d = g.document
 
-    var MOPS = {
+    const MOPS = {
         patterns: [],
         parts: [],
         triggers: [],
         patternType: 0
     }
     function initMOPS() {
-        var s = Array.prototype.slice
-        MOPS.patterns = s.call(d.querySelectorAll('.MOPSPtn'))
-        var ps = s.call(d.querySelectorAll('.MOPSBodyPart'))
+        const s = Array.prototype.slice;
+        MOPS.patterns = s.call(d.querySelectorAll('.MOPSPtn'));
+        const ps = s.call(d.querySelectorAll('.MOPSBodyPart'));
         
         MOPS.parts = ps.reduce(function(acc, node) {
-            return [node.querySelector('*[fill^="url(#MOPSPtn"]')].concat(acc)
-        }, [])
+            return [node.querySelector('*[fill^="url(#MOPSPtn"]')].concat(acc);
+        }, []);
         MOPS.triggers = ps.reduce(function(acc, node) {
-            return [node.querySelector('#' + node.id + 'A1')].concat(acc)
-        }, [])
+            return [node.querySelector('#' + node.id + 'A1')].concat(acc);
+        }, []);
+
+        setTimeout(loop, 1000);
+        d.querySelector('#MOPSHeadA2').addEventListener('endEvent', function(e) {
+            updatePattern();
+        });
     }
     
     function updatePattern() {
-        var n = MOPS.patterns.length
+        const n = MOPS.patterns.length
         if (n == 0) return
 
-        var p = Math.floor(Math.random() * n)
+        let p = Math.floor(Math.random() * n)
         while (p == MOPS.patternType) {
             p = Math.floor(Math.random() * n)
         }
         MOPS.patternType = p
-        var fill = 'url(#MOPSPtn' + p + ')'
+        const fill = 'url(#MOPSPtn' + p + ')'
         
         MOPS.parts.forEach(function(node) {
             node.setAttribute('fill', fill)
@@ -45,19 +50,31 @@
         setTimeout(loop, 4000 + Math.random() * 3000)
     }
 
-    function main() {
-        initMOPS()
-        setTimeout(loop, 3000)
-
-        d.querySelector('#MOPSHeadA2').addEventListener('endEvent', function(e) {
-            updatePattern()
-        }, false)
+    let readyState = 0;
+    let offsetTimerId;
+    function main(state) {
+	if (state === 'loaded'
+	    && offsetTimerId === undefined
+	    && readyState === 0) {
+	    readyState = 1;
+	    offsetTimerId = setTimeout(() => {
+		readyState = 2;
+		initMOPS();
+	    }, 1500);
+	} else if (state === 'start') {
+	    if (readyState === 1) {
+		clearTimeout(offsetTimerId);
+	    }
+	    if (readyState !== 2) {
+		readyState = 2;
+		initMOPS();
+	    }
+	}
     }
-    
-    g.Main = main
-    g.addEventListener('DOMContentLoaded', function(e) {
-        d.querySelector('svg').removeAttribute('onload')
-        g.Main = null
-        main()
-    }, false)
-})(this)
+
+    g.addEventListener('message', (e) => {
+	if (e.origin === this.origin && (e.data === 'loaded' || e.data === 'start')) {
+	    main(e.data);
+	}
+    });
+})(this);

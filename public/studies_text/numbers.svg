@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
 <svg version="1.1"
      xmlns="http://www.w3.org/2000/svg"
      xmlns:xlink="http://www.w3.org/1999/xlink"
-     viewBox="0 0 2400 1800">
+     viewBox="0 0 1500 1500">
   <title>Study SVG font and text-layout: numbers</title>
   <desc>
-    Author: osmatsuda@gmail.com
+    Author: Osamu Matsuda (osmatsuda@gmail.com)
     Licence: Creative Commons Attribution 4.0 International (CC BY 4.0)
     https://creativecommons.org/licenses/by/4.0/
   </desc>
@@ -13,45 +12,265 @@
     <style type="text/css"><![CDATA[
     @font-face {
       font-family: "My Numbers Black";
-      src: url("numbers-src.svg#MyNumbersBlack") format("svg");
+      src: url("numbers-src-black.svg#MyNumbersBlack") format("svg");
     }
     @font-face {
       font-family: "My Numbers Roman";
-      src: url("numbers-src.svg#MyNumbersRoman") format("svg");
+      src: url("numbers-src-roman.svg#MyNumbersRoman") format("svg");
     }
     @font-face {
       font-family: "My Numbers Cloock";
-      src: url("numbers-src.svg#MyNumbersCloock") format("svg");
+      src: url("numbers-src-cloock.svg#MyNumbersCloock") format("svg");
     }
     @font-face {
       font-family: "My Numbers Type";
-      src: url("numbers-src.svg#MyNumbersType") format("svg");
+      src: url("numbers-src-type.svg#MyNumbersType") format("svg");
     }
     @font-face {
       font-family: "My Numbers Script";
-      src: url("numbers-src.svg#MyNumbersBlack") format("svg");
+      src: url("numbers-src-script.svg#MyNumbersScript") format("svg");
     }
-    .font-black { font-family: "My Numbers Black", Impact, sans-serif; }
-    .font-roman { font-family: "My Numbers Roman", "Times New Roman", serif; font-weight: bold; }
-    .font-cloock { font-family: "My Numbers Cloock", Futura, sans-serif; }
-    .font-type { font-family: "My Numbers Type", Courier, monospace; font-weight: bold; }
-    .font-script { font-family: "My Numbers Script", "Brush Script MT", cursive; }
+    tspan.black { font-family: "My Numbers Black", Impact, sans-serif; }
+    tspan.roman { font-family: "My Numbers Roman", "Times New Roman", serif; font-weight: bold; }
+    tspan.cloock { font-family: "My Numbers Cloock", Futura, sans-serif; }
+    tspan.type { font-family: "My Numbers Type", Courier, monospace; font-weight: bold; }
+    tspan.script { font-family: "My Numbers Script", "Brush Script MT", cursive; }
     ]]></style>
   </defs>
-  <path d="M0,342 H2400 M0,702 H2400 M0,1062 H2400 M0,1422 H2400" fill="none" stroke="lightgray"/>
-  <text x="0" y="342" class="font-black" font-size="360" fill="red">
-    <tspan>0123456789</tspan>
-  </text>
-  <text x="0" y="702" class="font-roman" font-size="360" fill="orange">
-    0123456789
-  </text>
-  <text x="0" y="1062" class="font-cloock" font-size="360" fill="green">
-    0123456789
-  </text>
-  <text x="0" y="1422" class="font-type" font-size="360" fill="blue">
-    0123456789
-  </text>
-  <text x="0" y="1782" class="font-script" font-size="360" fill="violet">
-    0123456789
-  </text>
+  <rect width="100%" height="100%" fill="black"/> 
+  <clipPath id="clip-1">
+    <path d="M0,0 500,0 500,1500 0,1500Z">
+      <animate
+	  id="trigger" begin="indefinite" dur="10s" fill="freeze" attributeName="d"
+	  values="M0,0 500,0 500,1500 0,1500Z;M0,0 500,0 500,1500 0,1500Z"/>
+    </path>
+  </clipPath>
+  <clipPath id="clip-2">
+    <path d="M500,0 1000,0 1000,1500 500,1500Z">
+      <animate
+	  begin="trigger.begin" dur="10s" fill="freeze" attributeName="d"
+	  values="M500,0 1000,0 1000,1500 500,1500Z;M500,0 1000,0 1000,1500 500,1500Z"/>
+    </path>
+  </clipPath>
+  <clipPath id="clip-3">
+    <path d="M1000,0 1500,0 1500,1500 1000,1500Z">
+      <animate
+	  begin="trigger.begin" dur="10s" fill="freeze" attributeName="d"
+	  values="M1000,0 1500,0 1500,1500 1000,1500Z;M1000,0 1500,0 1500,1500 1000,1500Z"/>
+    </path>
+  </clipPath>
+  <g id="col-1" clip-path="url(#clip-1)" fill="white">
+    <svg
+	y="0" height="300" font-size="300" viewBox="0 0 1500 300"
+	width="1500" preserveAspectRatio="xMidYMid slice">
+      <animate attributeName="height" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      <animate attributeName="font-size" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      <animate attributeName="viewBox" begin="trigger.begin" dur="10s" values="0 0 1500 300;0 0 1500 300" fill="freeze"/>
+      <text
+	  y="300"
+	  x="-50" font-size="1.3em" kerning="-50">
+	<tspan class="black" dominant-baseline="alphabetic">0123456789</tspan><tspan dominant-baseline="alphabetic"></tspan>
+	<animate attributeName="y" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      </text>
+    </svg>
+    <svg
+	width="1500" y="300" height="300" font-size="300" viewBox="0 0 1500 300"
+	preserveAspectRatio="xMidYMid slice">
+      <animate attributeName="y" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      <animate attributeName="height" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      <animate attributeName="font-size" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      <animate attributeName="viewBox" begin="trigger.begin" dur="10s" values="0 0 1500 300;0 0 1500 300" fill="freeze"/>
+      <text
+	  y="300"
+	  x="-50" font-size="1.4em" kerning="-70">
+	<tspan class="roman" dominant-baseline="alphabetic">0123456789</tspan><tspan dominant-baseline="alphabetic"></tspan>
+	<animate attributeName="y" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      </text>
+    </svg>
+    <svg
+	width="1500" y="600" height="300" font-size="300" viewBox="0 0 1500 300"
+	preserveAspectRatio="xMidYMid slice">
+      <animate attributeName="y" begin="trigger.begin" dur="10s" values="600;600" fill="freeze"/>
+      <animate attributeName="height" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      <animate attributeName="font-size" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      <animate attributeName="viewBox" begin="trigger.begin" dur="10s" values="0 0 1500 300;0 0 1500 300" fill="freeze"/>
+      <text
+	  y="300"
+	  x="-50" font-size="1.4em" kerning="-50">
+	<tspan class="cloock" dominant-baseline="alphabetic">0123456789</tspan><tspan dominant-baseline="alphabetic"></tspan>
+	<animate attributeName="y" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      </text>
+    </svg>
+    <svg
+	width="1500" y="900" height="300" font-size="300" viewBox="0 0 1500 300"
+	preserveAspectRatio="xMidYMid slice">
+      <animate attributeName="y" begin="trigger.begin" dur="10s" values="900;900" fill="freeze"/>
+      <animate attributeName="height" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      <animate attributeName="font-size" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      <animate attributeName="viewBox" begin="trigger.begin" dur="10s" values="0 0 1500 300;0 0 1500 300" fill="freeze"/>
+      <text
+	  y="300"
+	  x="-50" font-size="1.6em" kerning="-50">
+	<tspan class="type" dominant-baseline="alphabetic">0123456789</tspan><tspan dominant-baseline="alphabetic"></tspan>
+	<animate attributeName="y" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      </text>
+    </svg>
+    <svg
+	width="1500" y="1200" height="300" font-size="300" viewBox="0 0 1500 300"
+	preserveAspectRatio="xMidYMid slice">
+      <animate attributeName="y" begin="trigger.begin" dur="10s" values="1200;1200" fill="freeze"/>
+      <animate attributeName="height" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      <animate attributeName="font-size" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      <animate attributeName="viewBox" begin="trigger.begin" dur="10s" values="0 0 1500 300;0 0 1500 300" fill="freeze"/>
+      <text
+	  y="300"
+	  x="-50" font-size="1.5em" kerning="-70">
+	<tspan class="script" dominant-baseline="alphabetic">0123456789</tspan><tspan dominant-baseline="alphabetic"></tspan>
+	<animate attributeName="y" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      </text>
+    </svg>
+  </g>
+  <g id="col-2" clip-path="url(#clip-2)" fill="white">
+    <svg
+	width="1500" y="0" height="300" font-size="300" viewBox="0 0 1500 300"
+	preserveAspectRatio="xMidYMid slice">
+      <animate attributeName="height" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      <animate attributeName="font-size" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      <animate attributeName="viewBox" begin="trigger.begin" dur="10s" values="0 0 1500 300;0 0 1500 300" fill="freeze"/>
+      <text
+	  y="300"
+	  x="750" text-anchor="middle" font-size="1.3em" kerning="-50">
+	<tspan class="black" dominant-baseline="alphabetic">0123456789</tspan><tspan dominant-baseline="alphabetic"></tspan>
+	<animate attributeName="y" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      </text>
+    </svg>
+    <svg
+	width="1500" y="300" height="300" font-size="300" viewBox="0 0 1500 300"
+	preserveAspectRatio="xMidYMid slice">
+      <animate attributeName="y" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      <animate attributeName="height" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      <animate attributeName="font-size" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      <animate attributeName="viewBox" begin="trigger.begin" dur="10s" values="0 0 1500 300;0 0 1500 300" fill="freeze"/>
+      <text
+	  y="300"
+	  x="750" text-anchor="middle" font-size="1.4em" kerning="-70">
+	<tspan class="roman" dominant-baseline="alphabetic">0123456789</tspan><tspan dominant-baseline="alphabetic"></tspan>
+	<animate attributeName="y" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      </text>
+    </svg>
+    <svg
+	width="1500" y="600" height="300" font-size="300" viewBox="0 0 1500 300"
+	preserveAspectRatio="xMidYMid slice">
+      <animate attributeName="y" begin="trigger.begin" dur="10s" values="600;600" fill="freeze"/>
+      <animate attributeName="height" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      <animate attributeName="font-size" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      <animate attributeName="viewBox" begin="trigger.begin" dur="10s" values="0 0 1500 300;0 0 1500 300" fill="freeze"/>
+      <text
+	  y="300"
+	  x="750" text-anchor="middle" font-size="1.4em" kerning="-50">
+	<tspan class="cloock" dominant-baseline="alphabetic">0123456789</tspan><tspan dominant-baseline="alphabetic"></tspan>
+	<animate attributeName="y" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      </text>
+    </svg>
+    <svg
+	width="1500" y="900" height="300" font-size="300" viewBox="0 0 1500 300"
+	preserveAspectRatio="xMidYMid slice">
+      <animate attributeName="y" begin="trigger.begin" dur="10s" values="900;900" fill="freeze"/>
+      <animate attributeName="height" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      <animate attributeName="font-size" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      <animate attributeName="viewBox" begin="trigger.begin" dur="10s" values="0 0 1500 300;0 0 1500 300" fill="freeze"/>
+      <text
+	  y="300"
+	  x="750" text-anchor="middle" font-size="1.6em" kerning="-50">
+	<tspan class="type" dominant-baseline="alphabetic">0123456789</tspan><tspan dominant-baseline="alphabetic"></tspan>
+	<animate attributeName="y" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      </text>
+    </svg>
+    <svg
+	width="1500" y="1200" height="300" font-size="300" viewBox="0 0 1500 300"
+	preserveAspectRatio="xMidYMid slice">
+      <animate attributeName="y" begin="trigger.begin" dur="10s" values="1200;1200" fill="freeze"/>
+      <animate attributeName="height" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      <animate attributeName="font-size" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      <animate attributeName="viewBox" begin="trigger.begin" dur="10s" values="0 0 1500 300;0 0 1500 300" fill="freeze"/>
+      <text
+	  y="300"
+	  x="750" text-anchor="middle" font-size="1.5em" kerning="-70">
+	<tspan class="script" dominant-baseline="alphabetic">0123456789</tspan><tspan dominant-baseline="alphabetic"></tspan>
+	<animate attributeName="y" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      </text>
+    </svg>
+  </g>
+  <g id="col-3" clip-path="url(#clip-3)" fill="white">
+    <svg
+	width="1500" y="0" height="300" font-size="300" viewBox="0 0 1500 300"
+	preserveAspectRatio="xMidYMid slice">
+      <animate attributeName="height" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      <animate attributeName="font-size" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      <animate attributeName="viewBox" begin="trigger.begin" dur="10s" values="0 0 1500 300;0 0 1500 300" fill="freeze"/>
+      <text
+	  y="300"
+	  x="1550" text-anchor="end" font-size="1.3em" kerning="-50">
+	<tspan class="black" dominant-baseline="alphabetic">0123456789</tspan><tspan dominant-baseline="alphabetic"></tspan>
+	<animate attributeName="y" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      </text>
+    </svg>
+    <svg
+	width="1500" y="300" height="300" font-size="300" viewBox="0 0 1500 300"
+	preserveAspectRatio="xMidYMid slice">
+      <animate attributeName="y" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      <animate attributeName="height" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      <animate attributeName="font-size" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      <animate attributeName="viewBox" begin="trigger.begin" dur="10s" values="0 0 1500 300;0 0 1500 300" fill="freeze"/>
+      <text
+	  y="300"
+	  x="1550" text-anchor="end" font-size="1.4em" kerning="-70">
+	<tspan class="roman" dominant-baseline="alphabetic">0123456789</tspan><tspan dominant-baseline="alphabetic"></tspan>
+	<animate attributeName="y" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      </text>
+    </svg>
+    <svg
+	width="1500" y="600" height="300" font-size="300" viewBox="0 0 1500 300"
+	preserveAspectRatio="xMidYMid slice">
+      <animate attributeName="y" begin="trigger.begin" dur="10s" values="600;600" fill="freeze"/>
+      <animate attributeName="height" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      <animate attributeName="font-size" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      <animate attributeName="viewBox" begin="trigger.begin" dur="10s" values="0 0 1500 300;0 0 1500 300" fill="freeze"/>
+      <text
+	  y="300"
+	  x="1550" text-anchor="end" font-size="1.4em" kerning="-50">
+	<tspan class="cloock" dominant-baseline="alphabetic">0123456789</tspan><tspan dominant-baseline="alphabetic"></tspan>
+	<animate attributeName="y" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      </text>
+    </svg>
+    <svg
+	width="1500" y="900" height="300" font-size="300" viewBox="0 0 1500 300"
+	preserveAspectRatio="xMidYMid slice">
+      <animate attributeName="y" begin="trigger.begin" dur="10s" values="900;900" fill="freeze"/>
+      <animate attributeName="height" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      <animate attributeName="font-size" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      <animate attributeName="viewBox" begin="trigger.begin" dur="10s" values="0 0 1500 300;0 0 1500 300" fill="freeze"/>
+      <text
+	  y="300"
+	  x="1550" text-anchor="end" font-size="1.6em" kerning="-50">
+	<tspan class="type" dominant-baseline="alphabetic">0123456789</tspan><tspan dominant-baseline="alphabetic"></tspan>
+	<animate attributeName="y" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      </text>
+    </svg>
+    <svg
+	width="1500" y="1200" height="300" font-size="300" viewBox="0 0 1500 300"
+	preserveAspectRatio="xMidYMid slice">
+      <animate attributeName="y" begin="trigger.begin" dur="10s" values="1200;1200" fill="freeze"/>
+      <animate attributeName="height" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      <animate attributeName="font-size" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      <animate attributeName="viewBox" begin="trigger.begin" dur="10s" values="0 0 1500 300;0 0 1500 300" fill="freeze"/>
+      <text
+	  y="300"
+	  x="1550" text-anchor="end" font-size="1.5em" kerning="-70">
+	<tspan class="script" dominant-baseline="alphabetic">0123456789</tspan><tspan dominant-baseline="alphabetic"></tspan>
+	<animate attributeName="y" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
+      </text>
+    </svg>
+  </g>
+  <script href="numbers.js" type="application/ecmascript"></script>
 </svg>

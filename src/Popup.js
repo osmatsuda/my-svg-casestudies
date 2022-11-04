@@ -30,9 +30,11 @@ function Popup(props) {
 		ppf.addEventListener('transitionend', (e) => {
 		    setClosable(true);
 		    window.history.pushState(null, title, '?get=' + src);
+		    ppf.contentWindow.postMessage('start');
 		}, { once: true });
 	    } else {
 		setClosable(true);
+		ppf.contentWindow.postMessage('start');
 	    }
 	}
     }, [timer, src, title, popupState]);
@@ -63,6 +65,11 @@ function Popup(props) {
 	    window.history.pushState(null, title, '/');
 	}, { once: true });
     }
+
+    function iframeonload() {
+	refF.current.contentWindow.postMessage('loaded');
+    }
+    
     return (
 	<>
 	    <img
@@ -73,6 +80,7 @@ function Popup(props) {
 		alt=''/>
 	    <iframe
 		ref={refF}
+		onLoad={iframeonload}
 		className={closeAnimate === 1 ? 'popupframe' : 'popupframe noanimate'}
 		title={title}
 		src={src}/>

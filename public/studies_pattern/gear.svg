@@ -3,11 +3,10 @@
     xmlns:xlink="http://www.w3.org/1999/xlink"
     xmlns="http://www.w3.org/2000/svg"
     version="1.1"
-    viewBox="0 0 52 52"
-    onload="Main()">
+    viewBox="0 0 52 52">
   <title>Study pattern and animation: animate in animate</title>
   <desc>
-    Author: osmatsuda@gmail.com
+    Author: Osamu Matsuda (osmatsuda@gmail.com)
     Licence: Creative Commons Attribution 4.0 International (CC BY 4.0)
     https://creativecommons.org/licenses/by/4.0/
   </desc>
@@ -121,8 +120,14 @@
 	   transform="translate(200 180)"/>
     </pattern>
   </defs>
-  <g clip-path="url(#clip-gear)">
-    <rect x="0" y="-26" width="52" height="52" fill="url(#gear_bg_pattern_0)">
+  <g transform="translate(26,26)">
+    <animateTransform
+	id="gearRotation"
+	attributeName="transform" type="rotate" additive="sum" accumulate="sum"
+	begin="indefinite" values="0;30" repeatCount="indefinite" dur="2s"
+	calcMode="spline" keySplines="1 0 0.5 1"/>
+    <g clip-path="url(#clip-gear)" transform="translate(-26,-26)">
+      <rect x="0" y="-26" width="52" height="52" fill="url(#gear_bg_pattern_0)">
       <animate id="anim0F" attributeName="y" attributeType="XML"
 	       begin="indefinite" from="-26" to="0" dur="3s" fill="freeze"
 	       onend="gearApp.endFormerAnim(this)" />
@@ -238,6 +243,7 @@
       <animate attributeName="y" attributeType="XML"
 	       begin="anim3R.begin" from="0" to="26" dur="3s" fill="freeze" />
     </rect>
+  </g>
   </g>
   <script xlink:href="gear.js" type="application/ecmascript"></script>
 </svg>

@@ -2,11 +2,12 @@
 <svg xmlns:xlink="http://www.w3.org/1999/xlink"
      xmlns="http://www.w3.org/2000/svg"
      version="1.1"
-     viewBox="0 0 600 400" onload="Main()">
+     viewBox="0 0 600 400">
   <title>Study pattern and animation: fancy octopus</title>
   <desc>
-    Author: osmatsuda@gmail.com
-    Licence: Creative Commons Attribution 4.0 International (CC BY 4.0) https://creativecommons.org/licenses/by/4.0/
+    Author: Osamu Matsuda (osmatsuda@gmail.com)
+    Licence: Creative Commons Attribution 4.0 International (CC BY 4.0)
+    https://creativecommons.org/licenses/by/4.0/
   </desc>
   <script xlink:href="octopus.js" type="application/ecmascript"></script>
   <defs>
@@ -90,18 +91,17 @@
 	    stroke-width="5" stroke-linecap="round" stroke-linejoin="round"
 	    d="M130+240C130+240+100+220+100+160C100+100+150+30+210+30C270+30+276.325+81.0263+270+100C260+130+250+140+250+160C250+180+270+190+310+190C370+190+390+170+390+150C390+140+387.889+118.944+370+110C350+100+340+80+370+80C400+80+430+110+430+150C430+190+410+220+370+230"></path>
 
-      <animateTransform id="MOPSHeadA1"
+      <animateTransform id="MOPSHeadA1" begin="indefinite"
 			attributeType="XML" attributeName="transform" type="scale"
-			from="1,1" to="1,1.05" dur="0.3s" fill="freeze"></animateTransform>
-      <animateTransform id="MOPSHeadA2"
+			from="1,1" to="1,1.05" dur="0.3s" fill="freeze"/>
+      <animateTransform id="MOPSHeadA2" begin="MOPSHeadA1.end"
 			attributeType="XML" attributeName="transform" type="scale"
-			begin="MOPSHeadA1.end"
-			values="1,1.05;1,0.85" dur="0.7s" fill="freeze"
-			calcMode="spline" keyTimes="0;1" keySplines="0 0.5 0.5 1"></animateTransform>
+			values="1,1.05;1,0.85" dur="1.2s" fill="freeze"
+			calcMode="spline" keyTimes="0;1" keySplines="0 0.5 0.5 1"/>
       <animateTransform attributeType="XML" attributeName="transform" type="scale"
 			begin="MOPSHeadA2.end"
-			values="1,0.85;1,1" dur="0.7s" fill="freeze"
-			calcMode="spline" keyTimes="0;1" keySplines="0.5 0 1 1"></animateTransform>
+			values="1,0.85;1,1" dur="1.2s" fill="freeze"
+			calcMode="spline" keyTimes="0;1" keySplines="0.5 0 1 1"/>
     </g>
     <g fill="black" transform="translate(0,-230)">
       <path transform="translate(-5,0)"
@@ -118,18 +118,17 @@
 	    stroke-width="5" stroke-linecap="round" stroke-linejoin="round"
 	    transform="translate(-140,-240)"
 	    d="M140+240C90+240+80+270+80+290C80+320+110+360+180+360C240+360+290+360+320+370C350+380+355.607+352.803+310+330C290+320+230+320+230+320"/>
-      <animateTransform id="MOPSLegFrontA1"
+      <animateTransform id="MOPSLegFrontA1" begin="indefinite"
 			attributeType="XML" attributeName="transform" type="scale"
-			from="1,1" to="0.95,1" dur="0.3s" fill="freeze"></animateTransform>
-      <animateTransform id="MOPSLegFrontA2"
+			from="1,1" to="0.95,1" dur="0.3s" fill="freeze"/>
+      <animateTransform id="MOPSLegFrontA2" begin="MOPSLegFrontA1.end"
 			attributeType="XML" attributeName="transform" type="scale"
-			begin="MOPSLegFrontA1.end"
-			values="0.95,1;1.2,0.9" dur="0.7s" fill="freeze"
-			calcMode="spline" keyTimes="0;1" keySplines="0 0.5 0.5 1"></animateTransform>
+			values="0.95,1;1.2,0.9" dur="1.2s" fill="freeze"
+			calcMode="spline" keyTimes="0;1" keySplines="0 0.5 0.5 1"/>
       <animateTransform attributeType="XML" attributeName="transform" type="scale"
 			begin="MOPSLegFrontA2.end"
-			values="1.2,0.9;1,1" dur="0.7s" fill="freeze"
-			calcMode="spline" keyTimes="0;1" keySplines="0.5 0 1 1"></animateTransform>
+			values="1.2,0.9;1,1" dur="1.2s" fill="freeze"
+			calcMode="spline" keyTimes="0;1" keySplines="0.5 0 1 1"/>
     </g>
   </g>
   <g transform="translate(200,240)">
@@ -139,18 +138,17 @@
       <path fill="none" stroke="black" transform="translate(-200,-240)"
 	    stroke-width="5" stroke-linecap="round" stroke-linejoin="round"
 	    d="M200+240C180+240+160+250+160+270C160+300+180+320+220+320C320+320+370+320+470+300C509.223+292.155+520+270+490+270C460+270+310+270+310+270M400+270C450+270+500+260+530+240C560+220+550+200+520+210C490+220+410+230+370+230C330+230+270+230+270+230"/>
-      <animateTransform id="MOPSLegRearA1"
+      <animateTransform id="MOPSLegRearA1" begin="indefinite"
 			attributeType="XML" attributeName="transform" type="scale"
-			from="1,1" to="0.95,1" dur="0.3s" fill="freeze"></animateTransform>
-      <animateTransform id="MOPSLegRearA2"
+			from="1,1" to="0.95,1" dur="0.3s" fill="freeze"/>
+      <animateTransform id="MOPSLegRearA2" begin="MOPSLegRearA1.end"
 			attributeType="XML" attributeName="transform" type="scale"
-			begin="MOPSLegRearA1.end"
-			values="0.95,1;1.07,0.95" dur="0.7s" fill="freeze"
-			calcMode="spline" keyTimes="0;1" keySplines="0 0.5 0.5 1"></animateTransform>
+			values="0.95,1;1.07,0.95" dur="1.2s" fill="freeze"
+			calcMode="spline" keyTimes="0;1" keySplines="0 0.5 0.5 1"/>
       <animateTransform attributeType="XML" attributeName="transform" type="scale"
 			begin="MOPSLegRearA2.end"
-			values="1.07,0.95;1,1" dur="0.7s" fill="freeze"
-			calcMode="spline" keyTimes="0;1" keySplines="0.5 0 1 1"></animateTransform>
+			values="1.07,0.95;1,1" dur="1.2s" fill="freeze"
+			calcMode="spline" keyTimes="0;1" keySplines="0.5 0 1 1"/>
     </g>
   </g>
 </svg>
