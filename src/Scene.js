@@ -16,6 +16,7 @@ function SVGcasestudies(svg) {
 	}
     }
 
+    this.scrolledAt = Date.now();
     this.smallTrigger = svg.querySelector('#SVGcasestudiesAnime0');
     this.largeTrigger = svg.querySelector('#SVGcasestudiesAnime0R');
     this.state = 0;
@@ -27,7 +28,9 @@ function SVGcasestudies(svg) {
     this.smallTrigger.addEventListener('endEvent', () => {
 	this.state = 2;
 	const smallHeight = this.svg.clientHeight *.666;
-	if (canScroll(document.body) && window.scrollY < smallHeight) {
+	if (canScroll(document.body)
+	    && window.scrollY < smallHeight
+	    && Date.now() - this.scrolledAt > 1300) {
 	    window.scrollTo({
 		top: smallHeight,
 		left: 0,
@@ -37,10 +40,10 @@ function SVGcasestudies(svg) {
     });
     this.largeTrigger.addEventListener('endEvent', () => {
 	this.state = 0;
-	const h = this.svg.clientHeight * .2;
-	if (canScroll(document.body)) {
+	if (canScroll(document.body)
+	    && Date.now() - this.scrolledAt > 1300) {
 	    window.scrollTo({
-		top: window.scrollY < h ? 0 : h,
+		top: 0,
 		left: 0,
 		behavior: 'smooth',
 	    });
@@ -54,6 +57,7 @@ SVGcasestudies.prototype.getBigger = function() {
 	return;
     }
     this.state = 3;
+    this.scrolledAt = Date.now();
     this.largeTrigger.beginElement();
 };
 SVGcasestudies.prototype.getSmaller = function() {
@@ -61,6 +65,7 @@ SVGcasestudies.prototype.getSmaller = function() {
 	return;
     }
     this.state = 1;
+    this.scrolledAt = Date.now();
     this.smallTrigger.beginElement();
 };
 
@@ -117,7 +122,9 @@ Scene.prototype.resized = function() {
     this.scrolled();
 };
 
-Scene.prototype.scrolled = function(init) {
+Scene.prototype.scrolled = function(e) {
+    this.header.scrolledAt = Date.now();
+    
     const scrollY = window.scrollY;
     let cof = 1.5;
     if (scrollY > this.prevScrollPos) {

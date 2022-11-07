@@ -66,10 +66,8 @@
       <animate attributeName="height" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
       <animate attributeName="font-size" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
       <animate attributeName="viewBox" begin="trigger.begin" dur="10s" values="0 0 1500 300;0 0 1500 300" fill="freeze"/>
-      <text
-	  y="300"
-	  x="-50" font-size="1.3em" kerning="-50">
-	<tspan class="black" dominant-baseline="alphabetic">0123456789</tspan><tspan dominant-baseline="alphabetic"></tspan>
+      <text y="300" x="-50">
+	<tspan class="black" dominant-baseline="alphabetic" font-size="1.3em" letter-spacing="-50">0123456789</tspan><tspan dominant-baseline="alphabetic"></tspan>
 	<animate attributeName="y" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
       </text>
     </svg>
@@ -80,10 +78,8 @@
       <animate attributeName="height" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
       <animate attributeName="font-size" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
       <animate attributeName="viewBox" begin="trigger.begin" dur="10s" values="0 0 1500 300;0 0 1500 300" fill="freeze"/>
-      <text
-	  y="300"
-	  x="-50" font-size="1.4em" kerning="-70">
-	<tspan class="roman" dominant-baseline="alphabetic">0123456789</tspan><tspan dominant-baseline="alphabetic"></tspan>
+      <text y="300" x="-50">
+	<tspan class="roman" dominant-baseline="alphabetic" font-size="1.6em" letter-spacing="-70">0123456789</tspan><tspan dominant-baseline="alphabetic"></tspan>
 	<animate attributeName="y" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
       </text>
     </svg>
@@ -94,10 +90,8 @@
       <animate attributeName="height" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
       <animate attributeName="font-size" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
       <animate attributeName="viewBox" begin="trigger.begin" dur="10s" values="0 0 1500 300;0 0 1500 300" fill="freeze"/>
-      <text
-	  y="300"
-	  x="-50" font-size="1.4em" kerning="-50">
-	<tspan class="cloock" dominant-baseline="alphabetic">0123456789</tspan><tspan dominant-baseline="alphabetic"></tspan>
+      <text y="300" x="-50">
+	<tspan class="cloock" dominant-baseline="alphabetic" font-size="1.4em" letter-spacing="-80">0123456789</tspan><tspan dominant-baseline="alphabetic"></tspan>
 	<animate attributeName="y" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
       </text>
     </svg>
@@ -108,10 +102,8 @@
       <animate attributeName="height" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
       <animate attributeName="font-size" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
       <animate attributeName="viewBox" begin="trigger.begin" dur="10s" values="0 0 1500 300;0 0 1500 300" fill="freeze"/>
-      <text
-	  y="300"
-	  x="-50" font-size="1.6em" kerning="-50">
-	<tspan class="type" dominant-baseline="alphabetic">0123456789</tspan><tspan dominant-baseline="alphabetic"></tspan>
+      <text y="300" x="-50">
+	<tspan class="type" dominant-baseline="alphabetic" font-size="1.75em" letter-spacing="-90">0123456789</tspan><tspan dominant-baseline="alphabetic"></tspan>
 	<animate attributeName="y" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
       </text>
     </svg>
@@ -122,10 +114,8 @@
       <animate attributeName="height" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
       <animate attributeName="font-size" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
       <animate attributeName="viewBox" begin="trigger.begin" dur="10s" values="0 0 1500 300;0 0 1500 300" fill="freeze"/>
-      <text
-	  y="300"
-	  x="-50" font-size="1.5em" kerning="-70">
-	<tspan class="script" dominant-baseline="alphabetic">0123456789</tspan><tspan dominant-baseline="alphabetic"></tspan>
+      <text y="300" x="-50">
+	<tspan class="script" dominant-baseline="alphabetic" font-size="1.8em" letter-spacing="-50">0123456789</tspan><tspan dominant-baseline="alphabetic"></tspan>
 	<animate attributeName="y" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
       </text>
     </svg>
@@ -137,10 +127,8 @@
       <animate attributeName="height" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
       <animate attributeName="font-size" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
       <animate attributeName="viewBox" begin="trigger.begin" dur="10s" values="0 0 1500 300;0 0 1500 300" fill="freeze"/>
-      <text
-	  y="300"
-	  x="750" text-anchor="middle" font-size="1.3em" kerning="-50">
-	<tspan class="black" dominant-baseline="alphabetic">0123456789</tspan><tspan dominant-baseline="alphabetic"></tspan>
+      <text y="300" x="750" text-anchor="middle">
+	<tspan class="black" dominant-baseline="alphabetic" font-size="1.3em" letter-spacing="-50">0123456789</tspan><tspan dominant-baseline="alphabetic"></tspan>
 	<animate attributeName="y" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
       </text>
     </svg>
@@ -151,10 +139,8 @@
       <animate attributeName="height" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
       <animate attributeName="font-size" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
       <animate attributeName="viewBox" begin="trigger.begin" dur="10s" values="0 0 1500 300;0 0 1500 300" fill="freeze"/>
-      <text
-	  y="300"
-	  x="750" text-anchor="middle" font-size="1.4em" kerning="-70">
-	<tspan class="roman" dominant-baseline="alphabetic">0123456789</tspan><tspan dominant-baseline="alphabetic"></tspan>
+      <text y="300" x="750" text-anchor="middle">
+	<tspan class="roman" dominant-baseline="alphabetic" font-size="1.6em" letter-spacing="-70">0123456789</tspan><tspan dominant-baseline="alphabetic"></tspan>
 	<animate attributeName="y" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
       </text>
     </svg>
@@ -165,10 +151,8 @@
       <animate attributeName="height" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
       <animate attributeName="font-size" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
       <animate attributeName="viewBox" begin="trigger.begin" dur="10s" values="0 0 1500 300;0 0 1500 300" fill="freeze"/>
-      <text
-	  y="300"
-	  x="750" text-anchor="middle" font-size="1.4em" kerning="-50">
-	<tspan class="cloock" dominant-baseline="alphabetic">0123456789</tspan><tspan dominant-baseline="alphabetic"></tspan>
+      <text y="300" x="750" text-anchor="middle">
+	<tspan class="cloock" dominant-baseline="alphabetic" font-size="1.4em" letter-spacing="-80">0123456789</tspan><tspan dominant-baseline="alphabetic"></tspan>
 	<animate attributeName="y" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
       </text>
     </svg>
@@ -179,10 +163,8 @@
       <animate attributeName="height" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
       <animate attributeName="font-size" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
       <animate attributeName="viewBox" begin="trigger.begin" dur="10s" values="0 0 1500 300;0 0 1500 300" fill="freeze"/>
-      <text
-	  y="300"
-	  x="750" text-anchor="middle" font-size="1.6em" kerning="-50">
-	<tspan class="type" dominant-baseline="alphabetic">0123456789</tspan><tspan dominant-baseline="alphabetic"></tspan>
+      <text y="300" x="750" text-anchor="middle">
+	<tspan class="type" dominant-baseline="alphabetic" font-size="1.7em" letter-spacing="-90">0123456789</tspan><tspan dominant-baseline="alphabetic"></tspan>
 	<animate attributeName="y" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
       </text>
     </svg>
@@ -193,10 +175,8 @@
       <animate attributeName="height" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
       <animate attributeName="font-size" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
       <animate attributeName="viewBox" begin="trigger.begin" dur="10s" values="0 0 1500 300;0 0 1500 300" fill="freeze"/>
-      <text
-	  y="300"
-	  x="750" text-anchor="middle" font-size="1.5em" kerning="-70">
-	<tspan class="script" dominant-baseline="alphabetic">0123456789</tspan><tspan dominant-baseline="alphabetic"></tspan>
+      <text y="300" x="750" text-anchor="middle">
+	<tspan class="script" dominant-baseline="alphabetic" font-size="1.8em" letter-spacing="-50">0123456789</tspan><tspan dominant-baseline="alphabetic"></tspan>
 	<animate attributeName="y" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
       </text>
     </svg>
@@ -208,10 +188,8 @@
       <animate attributeName="height" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
       <animate attributeName="font-size" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
       <animate attributeName="viewBox" begin="trigger.begin" dur="10s" values="0 0 1500 300;0 0 1500 300" fill="freeze"/>
-      <text
-	  y="300"
-	  x="1550" text-anchor="end" font-size="1.3em" kerning="-50">
-	<tspan class="black" dominant-baseline="alphabetic">0123456789</tspan><tspan dominant-baseline="alphabetic"></tspan>
+      <text y="300" x="1550" text-anchor="end">
+	<tspan class="black" dominant-baseline="alphabetic" font-size="1.3em" letter-spacing="-50">0123456789</tspan><tspan dominant-baseline="alphabetic"></tspan>
 	<animate attributeName="y" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
       </text>
     </svg>
@@ -222,10 +200,8 @@
       <animate attributeName="height" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
       <animate attributeName="font-size" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
       <animate attributeName="viewBox" begin="trigger.begin" dur="10s" values="0 0 1500 300;0 0 1500 300" fill="freeze"/>
-      <text
-	  y="300"
-	  x="1550" text-anchor="end" font-size="1.4em" kerning="-70">
-	<tspan class="roman" dominant-baseline="alphabetic">0123456789</tspan><tspan dominant-baseline="alphabetic"></tspan>
+      <text y="300" x="1550" text-anchor="end">
+	<tspan class="roman" dominant-baseline="alphabetic" font-size="1.6em" letter-spacing="-70">0123456789</tspan><tspan dominant-baseline="alphabetic"></tspan>
 	<animate attributeName="y" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
       </text>
     </svg>
@@ -236,10 +212,8 @@
       <animate attributeName="height" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
       <animate attributeName="font-size" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
       <animate attributeName="viewBox" begin="trigger.begin" dur="10s" values="0 0 1500 300;0 0 1500 300" fill="freeze"/>
-      <text
-	  y="300"
-	  x="1550" text-anchor="end" font-size="1.4em" kerning="-50">
-	<tspan class="cloock" dominant-baseline="alphabetic">0123456789</tspan><tspan dominant-baseline="alphabetic"></tspan>
+      <text y="300" x="1550" text-anchor="end">
+	<tspan class="cloock" dominant-baseline="alphabetic" font-size="1.4em" letter-spacing="-80">0123456789</tspan><tspan dominant-baseline="alphabetic"></tspan>
 	<animate attributeName="y" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
       </text>
     </svg>
@@ -250,10 +224,8 @@
       <animate attributeName="height" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
       <animate attributeName="font-size" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
       <animate attributeName="viewBox" begin="trigger.begin" dur="10s" values="0 0 1500 300;0 0 1500 300" fill="freeze"/>
-      <text
-	  y="300"
-	  x="1550" text-anchor="end" font-size="1.6em" kerning="-50">
-	<tspan class="type" dominant-baseline="alphabetic">0123456789</tspan><tspan dominant-baseline="alphabetic"></tspan>
+      <text y="300" x="1550" text-anchor="end">
+	<tspan class="type" dominant-baseline="alphabetic" font-size="1.7em" letter-spacing="-90">0123456789</tspan><tspan dominant-baseline="alphabetic"></tspan>
 	<animate attributeName="y" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
       </text>
     </svg>
@@ -264,10 +236,8 @@
       <animate attributeName="height" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
       <animate attributeName="font-size" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
       <animate attributeName="viewBox" begin="trigger.begin" dur="10s" values="0 0 1500 300;0 0 1500 300" fill="freeze"/>
-      <text
-	  y="300"
-	  x="1550" text-anchor="end" font-size="1.5em" kerning="-70">
-	<tspan class="script" dominant-baseline="alphabetic">0123456789</tspan><tspan dominant-baseline="alphabetic"></tspan>
+      <text y="300" x="1550" text-anchor="end">
+	<tspan class="script" dominant-baseline="alphabetic" font-size="1.8em" letter-spacing="-50">0123456789</tspan><tspan dominant-baseline="alphabetic"></tspan>
 	<animate attributeName="y" begin="trigger.begin" dur="10s" values="300;300" fill="freeze"/>
       </text>
     </svg>

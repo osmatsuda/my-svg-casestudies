@@ -1,6 +1,7 @@
 'use strict';
 
-function App() {
+function App(useMyNumbersFont) {
+    this.textProps = useMyNumbersFont ? TextProps : TextPropsFallback;
     this.trigger = document.querySelector('#trigger');
     this.vh = 0;
     this.vw = 0;
@@ -62,7 +63,57 @@ function App() {
     window.addEventListener('resize', () => {
 	this.resized = true;
     });
+    this.stop = false;
+    document.rootElement.addEventListener('click', (e) => {
+	console.log(e)
+	this.stop = true;
+    });
 }
+
+const TextProps = {
+    black: {
+	'font-size': '1.3em',
+	'letter-spacing': '-50',
+    },
+    roman: {
+	'font-size': '1.4em',
+	'letter-spacing': '-70',
+    },
+    cloock: {
+	'font-size': '1.4em',
+	'letter-spacing': '-50',
+    },
+    type: {
+	'font-size': '1.6em',
+	'letter-spacing': '-50',
+    },
+    script: {
+	'font-size': '1.5em',
+	'letter-spacing': '-70',
+    },
+};
+const TextPropsFallback = {
+    black: {
+	'font-size': '1.3em',
+	'letter-spacing': '-50',
+    },
+    roman: {
+	'font-size': '1.6em',
+	'letter-spacing': '-60',
+    },
+    cloock: {
+	'font-size': '1.4em',
+	'letter-spacing': '-70',
+    },
+    type: {
+	'font-size': '1.75em',
+	'letter-spacing': '-80',
+    },
+    script: {
+	'font-size': '1.8em',
+	'letter-spacing': '-40',
+    },
+};
 
 App.prototype = {
     randomSelects(src) {
@@ -177,11 +228,16 @@ App.prototype = {
 	    if (col[col.length - 1][0].getAttribute('class') === names[names.length - 1]) {
 		names.unshift(names.pop());
 	    }
-	    col.forEach((text, i) => {
-		if (text[0].getAttribute('class') === names[0]) {
+	    col.forEach(([tspanL, tspanR], i) => {
+		if (tspanL.getAttribute('class') === names[0]) {
 		    names.push(names.shift());
 		}
-		text[1].setAttribute('class', names.shift());
+		const cn = names.shift();
+		tspanR.setAttribute('class', cn);
+		Object.entries(this.textProps[cn])
+		    .forEach(([k, v]) => {
+			tspanR.setAttribute(k, v);
+		    });
 	    });
 	});
     },
@@ -189,13 +245,13 @@ App.prototype = {
 	const p = new Promise((resolve) => {
 	    let count = 0;
 	    this.tspans.forEach((col) => {
-		col.forEach((text) => {
+		col.forEach(([tspanL, tspanR]) => {
 		    count += 1;
 		    setTimeout(() => {
-			const h = text[0].textContent[0];
-			const tail = text[0].textContent.slice(1);
-			text[0].textContent = tail;
-			text[1].insertAdjacentText('beforeend', h);
+			const h = tspanL.textContent[0];
+			const tail = tspanL.textContent.slice(1);
+			tspanL.textContent = tail;
+			tspanR.insertAdjacentText('beforeend', h);
 			count -= 1;
 			if (count === 0) {
 			    resolve();
@@ -214,10 +270,17 @@ App.prototype = {
 	    offset *= 0.8;
 	}
 	this.tspans.forEach((col) => {
-	    col.forEach((text) => {
-		text[0].setAttribute('class', text[1].getAttribute('class'));
-		text[0].textContent = text[1].textContent;
-		text[1].textContent = '';
+	    col.forEach(([tspanL, tspanR]) => {
+		const cn = tspanR.getAttribute('class');
+		tspanL.setAttribute('class', cn);
+
+		tspanL.textContent = tspanR.textContent;
+		tspanR.textContent = '';
+
+		Object.entries(this.textProps[cn])
+		    .forEach(([k, v]) => {
+			tspanL.setAttribute(k, v);
+		    });
 	    });
 	});
 	return;
@@ -230,7 +293,9 @@ App.prototype = {
 	this.setupRowParams();
 
 	this.reflow().then(() => {
-	    this.trigger.beginElement();
+	    if (!this.stop) {
+		this.trigger.beginElement();
+	    }
 	});
     },
     resetSize() {
@@ -242,8 +307,11 @@ App.prototype = {
 };
 
 function main() {
-    const app = new App();
-    app.begin();
+    document.fonts.ready
+	.then((fontSet) => {
+	    const app = new App(fontSet.check('1em "My Numbers Script"', '0'));
+	    app.begin();
+	});
 }
 
 function tests() {
@@ -291,4 +359,4 @@ addEventListener('message', (e) => {
 	trigger.main(e.data);
     }
 });
-main();
+

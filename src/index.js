@@ -111,8 +111,8 @@ const locationCtl = new LocationCtl();
 
 
 const defaultScene = new Scene({
-    title: 'body>header:first-child>svg',
-    toRepos: 'body>footer a[title="repository"]>svg',
+    title: '#scene>header:first-child>svg',
+    toRepos: '#scene>footer a[title="repository"]>svg',
 });
 
 
@@ -132,8 +132,8 @@ window.addEventListener('scroll', (e) => {
 	clearTimeout(scrollTimerId);
     }
     scrollTimerId = setTimeout(() => {
-	defaultScene.scrolled();
-    }, 60);
+	defaultScene.scrolled(e);
+    }, 50);
 });
 
 

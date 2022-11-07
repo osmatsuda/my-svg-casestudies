@@ -46,9 +46,10 @@ function Item(props) {
     }, [src, itemsUpdate]);
 
     function mouseHover(e) {
-	if (e.type === 'mouseenter' && eyeCatching === 0) {
+	e.stopPropagation();
+	if (e.type === 'pointerenter' && eyeCatching === 0) {
 	    setEyeCatching(1);
-	} else if (e.type === 'mouseleave') {
+	} else if (e.type === 'pointerleave') {
 	    setEyeCatching(0);
 	}
     }
@@ -80,9 +81,9 @@ function Item(props) {
 	    <a
 		ref={anchor}
 		href={href}
-		onMouseEnter={mouseHover}
-		onMouseLeave={mouseHover}
-		onClick={popupWork}
+		onPointerEnter={mouseHover}
+		onPointerLeave={mouseHover}
+		onPointerUp={popupWork}
 	    ><Thumbnail
 		 popupWork={popupWork}
 		 setEyeCatching={setEyeCatching}

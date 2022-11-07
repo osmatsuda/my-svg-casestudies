@@ -17,9 +17,24 @@ const trigger = {
     start() {
 	if (this.readyState === 2) return;
 	this.readyState = 2;
+
+	if (location.pathname.endsWith('/drain.svg')) {
+	    this.drain();
+	} else if (location.pathname.endsWith('/camo.svg')) {
+	    this.camo();
+	}
+    },
+    drain() {
 	const sel = 'animate[data-start], animateTransform[data-start]';
 	document.querySelectorAll(sel).forEach((elm) => {
 	    elm.beginElement();
+	});
+    },
+    camo() {
+	document.querySelectorAll('g#main>use').forEach((use) => {
+	    const display = use.getAttribute('display');
+	    const to = display === 'block' ? 'none' : 'block';
+	    use.setAttribute('display', to);
 	});
     },
 };

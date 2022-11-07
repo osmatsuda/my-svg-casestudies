@@ -4,57 +4,100 @@ html, body {
     font-family: "SF Pro JP", "SF Pro Display", "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", メイリオ, Meiryo, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-body>header>svg, body>.title-spacer, #my-app, body>footer {
-    display: block;
+/* Scene block */
+#scene {
     margin: 0 auto;
+    max-width: 1500px;
+    min-height: 100vh;
+    display: flex;
+    align-content: stretch;
+    flex-direction: column;
+}
+#scene>.title-spacer {
+    margin-bottom: 1em;
+}
+#scene>.title-spacer, #scene>footer {
+    flex: 0 0 content;
+}
+#scene>main {
+    flex: 1 0 auto;
+}
+#scene>header>svg, #scene>.title-spacer {
+    display: block;
     max-width: 1500px;
 }
 @media screen {
-    body>header {
+    #scene>header {
 	position: fixed;
 	width: 100vw;
 	z-index: -1;
     }
 }
 @media print {
-    body>.title-spacer {
+    #scene>.title-spacer {
 	display: none;
     }
 }
 
-body>footer {
+#scene>footer {
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
     font-size: .8em;
-    line-height: 1.4;
+    line-height: 1.2;
 }
-body>footer>p {
-    flex: 1 1 width;
+#scene>footer>p {
+    flex: 0 1 auto;
     align-self: flex-end;
     box-sizing: border-box;
     width: 50%;
-    padding: 2em 1em;
+    padding: 2em 1em 1em;
 }
-body>footer>a[title="repository"] {
-    flex: 0 0 width;
+#scene>footer>a[title="repository"] {
+    flex: 0 0 auto;
     display: block;
+    margin: 0 1em 0 0;
     --size: calc(100vmin / 4); 
     width: var(--size);
     height: var(--size);
     max-width: 200px;
     max-height: 200px;
 }
+@media (max-width: 750px) {
+    #scene>footer {
+	justify-content: stretch;
+    }
+    #scene>footer>p {
+	flex: 1 1 auto;
+	align-self: center;
+	width: unset;
+	padding: 2em 1em;
+    }
+    #scene>footer>p img[alt="Creative Commons License"] {
+	width: 70px;
+	height: 25px;
+    }
+    #scene>footer>a[title="repository"] {
+	flex: 0 0 100px;
+	align-self: center;
+	width: 100px;
+	height: 100px;
+    }
+}
     
+/* react-app body */
 #my-app>ul, #my-app>ul>li {
     margin: 0;
     padding: 0;
     display: flex;
     flex-wrap: wrap;
 }
+#my-app>ul {
+    justify-content: flex-start;
+}
 #my-app>ul>li {
-    flex: 1 1 auto;
-    width: 400px;
+    flex: 0 1 33.33%;
+    width: 33.33%;
     margin-bottom: 50px;
     justify-content: center;
     align-items: center;
@@ -63,6 +106,7 @@ body>footer>a[title="repository"] {
     display: block;
     flex: 1 1 auto;
     max-width: 400px;
+    max-height: 450px;
     position: relative;
     text-decoration: none;
 }
@@ -83,15 +127,31 @@ body>footer>a[title="repository"] {
     background: rgba(0,0,0,.1);
     color: gray;
 }
-@media screen (max-width: 1199px) {
+@media screen and (max-width: 1199px) {
+    #my-app>ul>li:last-child {
+	margin-bottom: 0;
+    }
+}
+@media screen and (min-width: 641px) and (max-width: 1199px) {
     #my-app>ul>li {
-	width: 300px;
+	flex: 0 1 50%;
+	width: 50%;
+    }
+    #my-app>ul>li>a {
+	max-width: 330px;
+    }
+}
+@media screen and (max-width: 640px) {
+    #my-app>ul>li {
+	flex: 1 1 auto;
+	width: 100%;
     }
     #my-app>ul>li>a {
 	max-width: 300px;
     }
 }
 
+/* popup */
 #my-app>.popuptransition {
     position: absolute;
     opacity: 1;
