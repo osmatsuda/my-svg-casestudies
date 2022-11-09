@@ -1,6 +1,6 @@
 # My SVG casestudies
 
-https://osmatsuda.github.io/my-svg-casestudies
+https://osmatsuda.github.io/my-svg-casestudies/
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
