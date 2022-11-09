@@ -21,6 +21,6 @@ I love SVG. I wish SVG would be more used. However, the specification of SVG is 
 
 ### Content
 
-All content is under a [Creative Commons Attribution 4.0 International License][cc-by] unless otherwise specified.
+All content is under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/) unless otherwise specified.
 
 
