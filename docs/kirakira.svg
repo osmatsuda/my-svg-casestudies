@@ -1,0 +1,178 @@
+<svg version="1.1"
+     xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 100 100"
+     onload="KirakiraMain()"
+     style="cursor:pointer">
+  <defs>
+    <path
+	id="popS"
+	d="M0,0 2.1,-2.1 M0,0 2.1,2.1 M0,0 -2.1,2.1 M0,0 -2.1,-2.1">
+      <set attributeName="d" to="M0,0 0,0 M0,0 0,0 M0,0 0,0 M0,0 0,0" begin="0"/>
+      <animate
+	  id="popSAnimate" attributeName="d"
+	  values="M0,0 0,0 M0,0 0,0 M0,0 0,0 M0,0 0,0;M0,0 1.5,-1.5 M0,0 1.5,1.5 M0,0 -1.5,1.5 M0,0 -1.5,-1.5;M1.5,-1.5 2.1,-2.1 M1.5,1.5 2.1,2.1 M-1.5,1.5 -2.1,2.1 M-1.5,-1.5 -2.1,-2.1;M2.1,-2.1 2.1,-2.1 M2.1,2.1 2.1,2.1 M-2.1,2.1 -2.1,2.1 M-2.1,-2.1 -2.1,-2.1"
+	  begin="indefinite" dur="1s" keyTimes="0;0.3;0.8;1" fill="freeze"/>
+    </path>
+    <path
+	id="popM"
+	d="M0,0 5,-5 M0,0 5,5 M0,0 -5,5 M0,0 -5,-5">
+      <set attributeName="d" to="M0,0 0,0 M0,0 0,0 M0,0 0,0 M0,0 0,0" begin="0"/>
+      <animate
+	  id="popMAnimate" attributeName="d"
+	  values="M0,0 0,0 M0,0 0,0 M0,0 0,0 M0,0 0,0;M0,0 3.5,-3.5 M0,0 3.5,3.5 M0,0 -3.5,3.5 M0,0 -3.5,-3.5;M3.5,-3.5 5,-5 M3.5,3.5 5,5 M-3.5,3.5 -5,5 M-3.5,-3.5 -5,-5;M5,-5 5,-5 M5,5 5,5 M-5,5 -5,5 M-5,-5 -5,-5"
+	  begin="indefinite" dur="1s" keyTimes="0;0.3;0.8;1" fill="freeze"/>
+    </path>
+    <path
+	id="popL"
+	d="M0,0 10,-10 M0,0 10,10 M0,0 -10,10 M0,0 -10,-10">
+      <set attributeName="d" to="M0,0 0,0 M0,0 0,0 M0,0 0,0 M0,0 0,0" begin="0"/>
+      <animate
+	  id="popLAnimate" attributeName="d"
+	  values="M0,0 0,0 M0,0 0,0 M0,0 0,0 M0,0 0,0;M0,0 7,-7 M0,0 7,7 M0,0 -7,7 M0,0 -7,-7;M7,-7 10,-10 M7,7 10,10 M-7,7 -10,10 M-7,-7 -10,-10;M10,-10 10,-10 M10,10 10,10 M-10,10 -10,10 M-10,-10 -10,-10"
+	  begin="indefinite" dur="1s" keyTimes="0;0.3;0.8;1" fill="freeze"/>
+    </path>
+    <path
+	id="stretchS"
+	d="M0,-3 0,3 M-3,0 3,0">
+      <set attributeName="d" to="M0,0 0,0 M0,0 0,0" begin="0"/>
+      <animate
+	  id="stretchSAnimate" attributeName="d"
+	  values="M0,0 0,0 M0,0 0,0;M0,-2.1 0,2.1 M-2.1,0 2.1 0;M0,-3 0,3 M-3,0 3,0;M0,-0.9 0,0.9 M-0.9,0 0.9,0;M0,0 0,0 M0,0 0,0;"
+	  begin="indefinite" dur="1.5s" keyTimes="0;0.3;0.5;0.7;1" fill="freeze"/>
+    </path>
+    <path
+	id="stretchM"
+	d="M0,-7 0,7 M-7,0 7,0">
+      <set attributeName="d" to="M0,0 0,0 M0,0 0,0" begin="0"/>
+      <animate
+	  id="stretchMAnimate" attributeName="d"
+	  values="M0,0 0,0 M0,0 0,0;M0,-4.9 0,4.9 M-4.9,0 4.9,0;M0,-7 0,7 M-7,0 7,0;M0,-2.1 0,2.1 M-2.1,0 2.1,0;M0,0 0,0 M0,0 0,0;"
+	  begin="indefinite" dur="1.5s" keyTimes="0;0.3;0.5;0.7;1" fill="freeze"/>
+    </path>
+    <path
+	id="stretchL"
+	d="M0,-15 0,15 M-15,0 15,0">
+      <set attributeName="d" to="M0,0 0,0 M0,0 0,0" begin="0"/>
+      <animate
+	  id="stretchLAnimate" attributeName="d"
+	  values="M0,0 0,0 M0,0 0,0;M0,-10.5 0,10.5 M-10.5,0 10.5,0;M0,-15 0,15 M-15,0 15,0;M0,-4.5 0,4.5 M-4.5,0 4.5,0;M0,0 0,0 M0,0 0,0;"
+	  begin="indefinite" dur="1.5s" keyTimes="0;0.3;0.5;0.7;1" fill="freeze"/>
+    </path>
+  </defs>
+  <g fill="none" stroke-width="1">
+    <use href="#popS" x="20" y="30"/>
+    <use href="#popS" x="70" y="40"/>
+    <use href="#popM" x="60" y="40"/>
+    <use href="#popM" x="30" y="70"/>
+    <use href="#popL" x="55" y="60"/>
+    <use href="#stretchS" x="80" y="70"/>
+    <use href="#stretchS" x="50" y="50"/>
+    <use href="#stretchM" x="20" y="80"/>
+    <use href="#stretchM" x="70" y="20"/>
+    <use href="#stretchL" x="40" y="30"/>
+  </g>
+  <script type="application/ecmascript"><![CDATA[
+function Kirakira(doc) {
+    const svg = doc.rootElement;
+    const cw = svg.clientWidth;
+    const ch = svg.clientHeight;
+    let [x, y, w, h] = svg.getAttribute('viewBox').split(' ').map(s=>parseInt(s));
+    if (cw > ch) {
+        x = x - (h/ch * cw - w) / 2;
+        w = h/ch * cw;
+    } else if (cw < ch) {
+        y = y - (w/cw * ch - h) / 2;
+        h = w/cw * ch;
+    }
+    this.visibleRect = {
+        x: x,
+        y: y,
+        width: w,
+        height: h,
+    };
+    this._points = [];
+    this.uses = {};
+    this.triggers = {};
+    this.fireCount = 0;
+    this.className = document.defaultView.frameElement.className;
+    Kirakira.ids.forEach((id) => {
+        this.uses[id] = doc.querySelectorAll(`use[href="#${id}"]`);
+        this.triggers[id] = doc.querySelector(`#${id}Animate`);
+    });
+};
+
+Kirakira.ids = 'pop stretch'.split(' ').map((prefix)=>{
+    return 'S M L'.split(' ').map((suffix)=>prefix+suffix);
+}).flat();
+
+Kirakira.colors = 'aqua skyblue blueviolet fuchsia tomato greenyellow lime yellow gold silver'.split(' ');
+Kirakira.randomColor = function() {
+    return Kirakira.colors[(Kirakira.colors.length * Math.random()) << 0];
+}
+
+Kirakira.prototype.randomPoint = function({width, height}) {
+    function random(width, height, vbRect) {
+        return {
+            x: (vbRect.x + width + (vbRect.width - width*2) * Math.random()) << 0,
+            y: (vbRect.y + height + (vbRect.height - height*2) * Math.random()) << 0,
+        };
+    }
+    function pOverlap(p) {
+        const dx = p.x - this.x;
+        const dy = p.y - this.y;
+        return (Math.hypot(dx, dy) < 10
+                || Math.abs(dx) < 10
+                || Math.abs(dy) < 10);
+    }
+
+    let r = random(width, height, this.visibleRect);
+    let c = 100;
+    while (this._points.some(pOverlap, r) && c-- > 0) {
+        r = random(width, height, this.visibleRect);
+    }
+    this._points.push(r);
+    return r;
+};
+
+Kirakira.prototype.fire = function(id, delay) {
+    const trigger = this.triggers[id];
+    this.fireCount += 1;
+    trigger.addEventListener('endEvent', () => {
+        this.fireCount -= 1;
+        if (this.fireCount === 0) {
+            document.defaultView.frameElement.dispatchEvent(new CustomEvent('kirakira.endEvent'));
+        }
+    }, { once: true });
+
+    setTimeout(()=>{trigger.beginElement()}, delay*Math.random());
+};
+
+function KirakiraMain() {
+    const app = new Kirakira(document);
+    Kirakira.ids.map((id) => {
+        const itemSize = {};
+        if (id.endsWith('S')) {
+            itemSize.width = 6;
+            itemSize.height = 6;
+        } else if (id.endsWith('M')) {
+            itemSize.width = 14;
+            itemSize.height = 14;
+        } else {
+            itemSize.width = 30;
+            itemSize.height = 30;
+        }
+        app.uses[id].forEach((use) => {
+            const point = app.randomPoint(itemSize);
+            use.setAttribute('x', point.x.toString());
+            use.setAttribute('y', point.y.toString());
+            use.setAttribute('stroke', Kirakira.randomColor());
+        });
+        app.fire(id, Math.random() < 0.33 ? 200 : 2000);
+    });
+
+    document.rootElement.addEventListener('click', (e)=>{
+        document.defaultView.frameElement.dispatchEvent(new CustomEvent('kirakira.click'));
+    }, { once: true });
+}
+  ]]></script>
+</svg>
