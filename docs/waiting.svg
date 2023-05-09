@@ -1,0 +1,1 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="#666" d="M50,50 98,50 A48 48 0 01 50,98 L50,50 2,50 A48 48 0 01 50,2Z"><animateTransform attributeName="transform" type="rotate" from="0,50,50" to="180,50,50" dur="1" repeatCount="indefinite"/></path><circle cx="50" cy="50" r="48" fill="none" stroke="#666" stroke-width="3"/></svg>

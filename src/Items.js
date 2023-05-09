@@ -72,9 +72,10 @@ function Item(props) {
 
     if (props.popupState > 0) {
 	return (
-	    <a href={href}>
-		{dimmed(filename(props.src), props.rect)}
-	    </a>
+	    <a href={href}
+	    >{
+		dimmed(filename(props.src), props.rect)
+	    }</a>
 	);
     } else if (props.title !== null) {
 	return (
@@ -89,10 +90,17 @@ function Item(props) {
 		 setEyeCatching={setEyeCatching}
 		 eyeCatching={eyeCatching}
 		 alt={props.title}
-		 src={src}/></a>
+		 src={src}
+	     /></a>
 	);
     } else {
-	return <a href={href}>...</a>;
+	return (
+	    <a href={href}
+	    ><img
+		 src={process.env.PUBLIC_URL + "/waiting.svg"}
+		 width="20" height="20" alt=""
+	     /></a>
+	);
     }
 }
 
